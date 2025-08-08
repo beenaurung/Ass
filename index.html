@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Responsive Portfolio Website</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+
+  <header class="header">
+    <a href="#home" class="logo">Prapti <span>Adk</span></a>
+    <nav class="navbar">
+      <a href="#home" class="active">Home</a>
+      <a href="#education">Education</a>
+      <a href="#services">Services</a>
+      <a href="#skills">Skills</a>
+      <a href="#code-samples">Code Samples</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="home" id="home">
+    <div class="home-content">
+      <h1>Hi, I'm <span>Beena Gurung</span></h1>
+     <p> Web designer</p>
+      <p>I'm a cybersecurity student.</p>
+      <p>Welcome to my personal portfolio where I share my skills and services.</p>
+      <div class="social-icons">
+        <a href="#"><i class='bx bxl-facebook'></i></a>
+        <a href="#"><i class='bx bxl-instagram'></i></a>
+        <a href="#"><i class='bx bxl-twitter'></i></a>
+        <a href="#"><i class='bx bxl-linkedin'></i></a>
+      </div>
+      <div class="btn-group">
+        <a href="#" class="btn">Hire Me</a>
+        <a href="#contact" class="btn">980657576</a>
+      </div>
+    </div>
+    <div class="home-img">
+      <img src="profileimage.jpg" alt="Profile Photo">
+    </div>
+  </section>
+
+  <section class="education" id="education">
+    <h2 class="heading">My <span>Education</span></h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <h2>2023 - Running</h2>
+        <h3>Bachelor of Computer Science</h3>
+        <p>Texas College of Management and IT</p>
+      </div>
+      <div class="timeline-item">
+        <h2>2021 - 2023</h2>
+        <h3>High School</h3>
+        <p>SOS Hermann Gmeiner School Chitwan</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <h2 class="heading">My <span>Services</span></h2>
+    <div class="services-container">
+      <div class="service-box">
+        <i class='bx bx-code-alt'></i>
+        <h3>Web Development</h3>
+        <p>I build responsive and dynamic websites using HTML, CSS, and JavaScript.</p>
+      </div>
+      <div class="service-box">
+        <i class='bx bx-cart'></i>
+        <h3>E-commerce Websites</h3>
+        <p>Design and development of online stores with secure payment gateways.</p>
+      </div>
+      <div class="service-box">
+        <i class='bx bx-id-card'></i>
+        <h3>Portfolio Websites</h3>
+        <p>Create personal or business portfolio websites to showcase your brand.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="skills" id="skills">
+    <h2 class="heading">My <span>Skills</span></h2>
+    <div class="skills-container">
+      <div class="skill-box"><i class='bx bxl-python'></i> Python</div>
+      <div class="skill-box"><i class='bx bx-code'></i> C Programming</div>
+      <div class="skill-box"><i class='bx bxl-java'></i> Java</div>
+      <div class="skill-box"><i class='bx bxl-html5'></i> HTML</div>
+      <div class="skill-box"><i class='bx bxl-css3'></i> CSS</div>
+      <div class="skill-box"><i class='bx bxl-javascript'></i> JavaScript</div>
+      <div class="skill-box"><i class='bx bxs-data'></i> SQL</div>
+      <div class="skill-box"><i class='bx bxl-github'></i> Git & GitHub</div>
+      <div class="skill-box"><i class='bx bx-shield-alt'></i> Computer Security</div>
+    </div>
+  </section>
+
+  <section class="code-samples" id="code-samples">
+    <h2 class="heading">Code <span>Samples</span></h2>
+    <div class="code-container">
+      <div class="code-box">
+        <h3>C Programming Example</h3>
+        <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    printf("Hello, World!\n");
+    return 0;
+}</code></pre>
+      </div>
+      <div class="code-box">
+        <h3>JavaScript Example</h3>
+        <pre><code>function greet(name) {
+  console.log("Hello, " + name + "!");
+}
+greet("Prapti");</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <h2 class="heading">Contact <span>Me</span></h2>
+    <form action="#">
+      <div class="input-group">
+        <input type="text" placeholder="Your Name" />
+        <input type="email" placeholder="Your Email" />
+      </div>
+      <textarea placeholder="Your Message" rows="5"></textarea>
+      <button class="btn">Send Message</button>
+    </form>
+  </section>
+
+  <script>
+    const text = document.querySelector(".text-animation span");
+    const roles = ["Web Developer", "Cybersecurity Student"];
+    let roleIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+
+    function typeEffect() {
+      const currentRole = roles[roleIndex % roles.length];
+      let displayed = isDeleting
+        ? currentRole.substring(0, charIndex--)
+        : currentRole.substring(0, charIndex++);
+
+      text.textContent = displayed;
+
+      if (!isDeleting && charIndex === currentRole.length) {
+        isDeleting = true;
+        setTimeout(typeEffect, 1000);
+      } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        roleIndex++;
+        setTimeout(typeEffect, 500);
+      } else {
+        setTimeout(typeEffect, isDeleting ? 50 : 100);
+      }
+    }
+    typeEffect();
+  </script>
+
+</body>
+</html>
